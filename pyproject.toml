@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arlo-decision"
+version = "0.2.0"
+description = "Arlo: a tiny calibrated decision maker for small models. Choice and yes/no with abstention, constraints and cost-aware thresholds"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Kivitas" }]
+requires-python = ">=3.10"
+dependencies = ["torch>=2.0"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+
+[project.optional-dependencies]
+hf = ["transformers>=4.40"]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+include = ["arlo*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["B905"]
